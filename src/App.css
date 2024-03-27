@@ -21,3 +21,13 @@
     justify-content: center;
 }
 
+.input-style{
+    padding-left: 10px;
+    padding-top: 10px;
+    border:none;
+    border-bottom: 2px solid #252825;
+    font-size: 15px;
+    outline: none;
+
+}
+
