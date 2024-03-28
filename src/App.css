@@ -40,4 +40,5 @@
 .product-img{
     display: flex;
     justify-content: end;
+    height: 500px;
 }
