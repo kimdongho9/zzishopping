@@ -7,7 +7,7 @@ const ProductAll = () => {
     const [productList, setProductList] = useState([])
     const [query, setQuery] = useSearchParams();
     const getProducts = async () => {
-        let searchQuery = query.get('q')
+        let searchQuery = query.get('q')|| "";
         let url = `https://my-json-server.typicode.com/kimdongho9/zzishopping/products?q=${searchQuery}`;
         let response = await fetch(url);
         let data = await response.json();
