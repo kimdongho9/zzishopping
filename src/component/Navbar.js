@@ -9,31 +9,40 @@ const menulist = ["여성", "남성", "Divided", "유아", "아동", "Home", "Sa
 
 const Navbar = () => {
     const nagivate = useNavigate();
-    const goTologin=()=>{
+
+    const goTologin = () => {
         nagivate("/login");
-    }
-    return (<div>
-        <div className="login-button" onClick={goTologin}>
-            <FontAwesomeIcon icon={faUser}></FontAwesomeIcon>
-            <div>로그인</div>
-        </div>
-        <div className="nav-section">
-            <img width={100} src={'zzi.png'} alt="로고"/>
-        </div>
-        <div className="menu-area">
+    };
 
-            <ul className="menu-list">
-                {menulist.map((menu) => (
-                    <li>{menu}</li>
-                ))}
-            </ul>
+    const search = (event) => {
+        if (event.key === "Enter") {
+            let keyword = event.target.value;
+            nagivate(`/?q=${keyword}`);
+        }
+    };
 
-            <div className="menu-search">
-                <FontAwesomeIcon icon={faSearch}/>
-                <input type="text" className="input-style" placeholder="검색"/>
+    return (
+        <div>
+            <div className="login-button" onClick={goTologin}>
+                <FontAwesomeIcon icon={faUser}></FontAwesomeIcon>
+                <div>로그인</div>
+            </div>
+            <div className="nav-section">
+                <img width={100} src={'zzi.png'} alt="로고"/>
+            </div>
+            <div className="menu-area">
+                <ul className="menu-list">
+                    {menulist.map((menu, index) => (
+                        <li key={index}>{menu}</li>
+                    ))}
+                </ul>
+                <div className="menu-search">
+                    <FontAwesomeIcon icon={faSearch}/>
+                    <input type="text" className="input-style" placeholder="검색" onKeyPress={(event) => search(event)} />
+                </div>
             </div>
         </div>
-    </div>);
+    );
 };
 
 export default Navbar;
